@@ -10,17 +10,20 @@ jsSrc.value   = localStorage[ 'jsSrc' ] || '';
 var htmlCM = CodeMirror.fromTextArea(htmlSrc, {
 	value: htmlSrc.value,
 	mode: 'htmlmixed',
-	lineNumbers: true
+	lineNumbers: true,
+	theme: 'monokai'
 });
 var cssCM = CodeMirror.fromTextArea(cssSrc, {
 	value: cssSrc.value,
 	mode: 'css',
-	lineNumbers: true
+	lineNumbers: true,
+	theme: 'monokai'
 });
 var jsCM = CodeMirror.fromTextArea(jsSrc, {
 	value: jsSrc.value,
 	mode: 'javascript',
-	lineNumbers: true
+	lineNumbers: true,
+	theme: 'monokai'
 });
 
 var htmlOutput    = document.getElementById( 'html-output' );
@@ -29,7 +32,7 @@ var consoleOutput = document.getElementById( 'console-output' );
 // Not needed now the function runs on change of the CodeMirror Editor
 //
 // [ htmlSrc, cssSrc, jsSrc ].forEach( function( src ) {
-	
+
 // 	src.addEventListener( 'keyup', onUpdate );
 
 // 	src.addEventListener( 'keydown', function(e){
@@ -37,7 +40,7 @@ var consoleOutput = document.getElementById( 'console-output' );
 // 			e.preventDefault();
 // 			var s = this.selectionStart;
 // 			this.value = this.value.substring(0,this.selectionStart) + "  " + this.value.substring(this.selectionEnd);
-// 			this.selectionEnd = s + 2; 
+// 			this.selectionEnd = s + 2;
 // 		}
 // 	} );
 
@@ -60,11 +63,11 @@ function onUpdate() {
 	cssCM.save();
 	htmlCM.save();
 	jsCM.save();
-	
+
 	localStorage[ 'htmlSrc' ] = htmlSrc.value;
 	localStorage[ 'cssSrc' ]  = cssSrc.value;
 	localStorage[ 'jsSrc' ]   = jsSrc.value;
-	
+
 	if( updateTimeout ) clearTimeout( updateTimeout );
 
 	updateTimeout = setTimeout( updateSources, 500 );
@@ -150,7 +153,7 @@ function log( args, style ) {
 		var span = document.createElement( 'span' );
 		if( typeof a === 'string' || typeof a === 'number' ) span.textContent = a;
 		else {
-			span.textContent = JSON.stringify( a );	
+			span.textContent = JSON.stringify( a );
 		}
 		li.appendChild( span );
 	})
@@ -162,7 +165,7 @@ function inject() {
 
 	function wrapConsole( method ) {
 
-		return function() { 
+		return function() {
 
 			var args = Array.prototype.slice.call(arguments);
 
@@ -171,7 +174,7 @@ function inject() {
 				arguments: args
 			}
 
-			parent.postMessage( JSON.stringify( data ), '*' ) 
+			parent.postMessage( JSON.stringify( data ), '*' )
 
 		};
 	}

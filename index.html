@@ -3,14 +3,17 @@
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="codemirror/codemirror.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="codemirror/theme/monokai.css" media="screen" />
 	<script src="codemirror/codemirror.js"></script>
-	
+
 	<script src="codemirror/mode/xml/xml.js"></script>
 	<script src="codemirror/mode/javascript/javascript.js"></script>
 	<script src="codemirror/mode/css/css.js"></script>
-	
+
 	<script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/openwebicons.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
 </head>
 <body>
 	<header>
@@ -23,18 +26,21 @@
 	<div id="main" class="rows" >
 		<div class="container" id="html-panel" >
 			<div class="toolbar" >
+				<i class="openwebicons-html5"></i>
 				<h3>HTML</h3>
 			</div>
 			<textarea id="html-src" class="block"></textarea>
 		</div>
 		<div class="container" id="css-panel" >
 			<div class="toolbar" >
+				<i class="openwebicons-css3"></i>
 				<h3>CSS</h3>
 			</div>
 			<textarea id="css-src" class="block"></textarea>
 		</div>
 		<div class="container" id="js-panel" >
 			<div class="toolbar" >
+				<i class="openwebicons-javascript"></i>
 				<h3>JavaScript</h3>
 			</div>
 			<textarea id="js-src" class="block"></textarea>
@@ -48,9 +54,13 @@
 		</div>
 		<div class="container" id="console-panel" >
 			<div class="toolbar" >
+				<i class="openwebicons-tosdr"></i>
 				<h3>Console</h3>
 				<a href="#" id="clearConsoleButton">Clear</a>
-				<span><input type="checkbox" id="autoClearConsole" /><label for="autoClearConsole" >Auto-clear</label></span>
+				<span>
+					<input type="checkbox" id="autoClearConsole" />
+					<label for="autoClearConsole" >Auto-clear</label>
+				</span>
 			</div>
 			<ul id="console-output" class="block"></ul>
 		</div>
